@@ -53,6 +53,15 @@ def _pos52(v):
     return f'<span class="pos {cls}">{v:.0f}%{(" " + tag) if tag else ""}</span>'
 
 
+def _fscore(fs):
+    """Piotroski F-Score 0–9, colour-coded (≥7 良好 / ≤2 危険)."""
+    if not fs or fs.get("score") is None or not fs.get("reliable"):
+        return '<span class="pos mid">—</span>'
+    s = fs["score"]
+    cls = "fs-hi" if s >= 7 else ("fs-lo" if s <= 2 else "fs-mid")
+    return f'<span class="{cls}">{s}/9</span>'
+
+
 def _chip(m: dict) -> str:
     """One stock chip inside a quadrant. 本命 strategies get an emoji."""
     strat = m.get("strategy", "none")
@@ -113,6 +122,7 @@ def render(rows: list[dict], title: str = "たーちゃん流 バリュー・ス
             f'<td>{_num(m.get("equity_ratio"), pct=True)}</td>'
             f'<td>{_yen_oku(m.get("market_cap"))}</td>'
             f'<td>{escape(m.get("earnings", {}).get("label","—"))}</td>'
+            f'<td>{_fscore(m.get("fscore"))}</td>'
             "</tr>"
             for m in items
         )
@@ -121,6 +131,7 @@ def render(rows: list[dict], title: str = "たーちゃん流 バリュー・ス
             '<table><thead><tr><th>コード</th><th>銘柄</th><th>株価</th><th>配当利回</th>'
             '<th>EPS</th><th>52週位置</th><th>PER</th><th>PBR</th>'
             '<th>営利率</th><th>ROA</th><th>自己資本</th><th>時価総額</th><th>業績</th>'
+            '<th>F<span style="font-weight:400">スコア</span></th>'
             f'</tr></thead><tbody>{trows}</tbody></table>'
         )
 
@@ -164,6 +175,9 @@ def render(rows: list[dict], title: str = "たーちゃん流 バリュー・ス
   .pos.low  {{ color:#34d399; font-weight:700; }}
   .pos.high {{ color:#f87171; font-weight:700; }}
   .pos.mid  {{ color:#b8c0cc; }}
+  .fs-hi  {{ color:#34d399; font-weight:700; }}
+  .fs-mid {{ color:#fbbf24; font-weight:700; }}
+  .fs-lo  {{ color:#f87171; font-weight:700; }}
   .corner {{ font-size:10px; color:#8a93a2; }}
 
   table {{ border-collapse:collapse; width:100%; font-size:13px; margin-bottom:4px; }}
@@ -208,7 +222,10 @@ def render(rows: list[dict], title: str = "たーちゃん流 バリュー・ス
 
   <div class="note">
     <b>利益配分</b> = 資産バリュー1 : 収益バリュー1 : <b>シクリカルバリュー8（本命）</b>。
-    景気循環業種で<b>2年連続赤字→黒字転換</b>を底値で仕込み、回復で大きく取る逆張り。
+    景気循環業種で<b>2年連続赤字→黒字転換</b>を底値で仕込み、回復で大きく取る逆張り。<br>
+    <b>Fスコア（ピオトロスキ）</b>= 財務健全性 0〜9点。<span class="fs-hi">≥7 良好</span> ／
+    <span class="fs-lo">≤2 危険（罠の疑い）</span>。
+    <b>赤字・黒字転換でも Fスコアが高い＝本物の回復候補</b>。バリュートラップ回避に使う。
     <h3 style="margin-top:10px;">🔔 売り時の3ルール</h3>
     <ul>{sell}</ul>
   </div>

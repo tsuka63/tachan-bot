@@ -119,7 +119,13 @@ def fetch(code: str) -> dict:
         "sector":       info.get("sector"),
         "industry":     info.get("industry"),
         "earnings":     earnings_history(tk),
+        "fscore":       _fscore(tk),
     }
+
+
+def _fscore(ticker) -> dict:
+    from tachan.fscore import compute
+    return compute(ticker)
 
 
 def fetch_many(codes: list[str]) -> list[dict]:

@@ -1,0 +1,45 @@
+name: Daily screen
+
+# Runs on GitHub's servers — your Mac does NOT need to be on.
+on:
+  schedule:
+    - cron: "30 7 * * 1-5"   # 16:30 JST on weekdays
+  workflow_dispatch: {}      # manual "Run workflow" button
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-screen
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements-ci.txt
+
+      - name: Run daily screen
+        run: python scripts/cloud_run.py
+
+      - name: Commit updated report
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/index.html
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Daily screen update ($(TZ=Asia/Tokyo date +%Y-%m-%d))"
+            git push
+          fi

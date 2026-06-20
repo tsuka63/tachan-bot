@@ -1,0 +1,3 @@
+# Lean dependencies for the GitHub Actions cloud job.
+yfinance>=0.2
+pandas>=2.0

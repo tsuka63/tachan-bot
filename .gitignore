@@ -1,0 +1,14 @@
+# Local artifacts
+data/
+*.log
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# OS
+.DS_Store
+
+# NOTE: docs/index.html IS committed (served by GitHub Pages).

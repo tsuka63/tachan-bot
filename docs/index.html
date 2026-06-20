@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>たーちゃん流 バリュー・スクリーナー — 2026-06-20 16:01</title>
+<style>
+  body { font-family:-apple-system,"Hiragino Sans",sans-serif; background:#0f1115;
+         color:#e6e6e6; padding:24px; max-width:1040px; margin:0 auto; }
+  h1 { font-size:20px; margin:0 0 4px; }
+  h2 { font-size:16px; margin:26px 0 8px; }
+  h3 { font-size:14px; margin:18px 0 4px; }
+  .count { color:#8a93a2; font-size:12px; font-weight:400; }
+  .meta { color:#8a93a2; font-size:13px; margin-bottom:18px; }
+
+  /* ── 4-type matrix ── */
+  .matrix-title { text-align:center; font-weight:700; color:#9ec5ff; margin:6px 0; }
+  .matrix { display:grid; grid-template-columns:30px 1fr 1fr 30px;
+             grid-template-rows:26px 1fr 1fr 26px; gap:7px; }
+  .ax { display:flex; align-items:center; justify-content:center; color:#9ec5ff;
+         font-size:12px; font-weight:700; }
+  .ax.v { writing-mode:vertical-rl; }
+  .ax.tag { color:#8a93a2; font-weight:400; font-size:11px; }
+  .quad { background:#1a1430; border:1.5px solid; border-radius:12px; padding:10px 12px;
+           min-height:118px; }
+  .quad-h { font-size:13px; font-weight:700; margin-bottom:8px; }
+  .quad-sub { display:block; color:#8a93a2; font-weight:400; font-size:10px; margin-top:2px; }
+  .chips { display:flex; flex-wrap:wrap; gap:5px; }
+  .chip { background:#0f1115; border:1px solid #3a3550; border-radius:7px;
+           padding:2px 7px; font-size:12px; }
+  .chip b { color:#d8b4fe; }
+  .chip-es { color:#34d399; font-size:10px; margin-left:4px; }
+  .chip.empty { color:#555; border-style:dashed; }
+  .corner { font-size:10px; color:#8a93a2; }
+
+  table { border-collapse:collapse; width:100%; font-size:13px; margin-bottom:4px; }
+  th,td { padding:6px 9px; border-bottom:1px solid #232733; text-align:right; white-space:nowrap; }
+  th { color:#b8c0cc; background:#161a22; }
+  td.code { text-align:left; font-weight:700; color:#6db3f2; }
+  td.name { text-align:left; }
+  .note { background:#161a22; border:1px solid #232733; border-radius:10px;
+           padding:14px 18px; margin-top:24px; font-size:13px; line-height:1.7; }
+  .note ul { margin:6px 0 0; padding-left:20px; color:#cdd3dc; }
+</style>
+</head>
+<body>
+  <h1>💹 たーちゃん流 バリュー・スクリーナー</h1>
+  <div class="meta">🕒 最終更新: 2026-06-20 16:01（JST） ／ 45銘柄を判定</div>
+
+  <h2>📊 株の4タイプ（シクリカルバリュー株の循環サイクル）</h2>
+  <div class="matrix-title">高PBR・高PER ↑</div>
+  <div class="matrix">
+    <div class="ax"></div><div class="ax tag"></div>
+    <div class="ax tag" style="text-align:right">グロース株投資 ▶</div><div class="ax"></div>
+
+    <div class="ax v">低成長</div>
+    <div class="quad" style="border-color:#c084fc"><div class="quad-h">シクリカルバリュー株の<b style="color:#c084fc">後退期</b><span class="quad-sub">高PBR/PER・低成長</span></div><div class="chips"><div class="chip"><b>3107</b> DAIWABO HO</div><div class="chip"><b>3861</b> OJI HOLDIN</div><div class="chip"><b>4063</b> SHIN-ETSU </div><div class="chip"><b>4183</b> MITSUI CHE</div><div class="chip"><b>5631</b> JAPAN STEE</div><div class="chip"><b>7003</b> MITSUI E&amp;S</div><div class="chip"><b>7012</b> KAWASAKI H</div><div class="chip"><b>8002</b> MARUBENI C</div></div></div>
+    <div class="quad" style="border-color:#c084fc"><div class="quad-h">シクリカルバリュー株の<b style="color:#c084fc">天井</b><span class="quad-sub">高PBR/PER・高成長</span></div><div class="chips"><div class="chip"><b>5401</b> NIPPON STE</div><div class="chip"><b>5803</b> FUJIKURA</div><div class="chip"><b>5706</b> MITSUI KIN</div><div class="chip"><b>5801</b> FURUKAWA E</div><div class="chip"><b>5802</b> SUMITOMO E</div><div class="chip"><b>6013</b> TAKUMA CO </div><div class="chip"><b>7011</b> MITSUBISHI</div><div class="chip"><b>7014</b> NAMURA SHI</div></div></div>
+    <div class="ax v">高成長</div>
+
+    <div class="ax v" style="color:#8a93a2;font-weight:400">資産バリュー</div>
+    <div class="quad" style="border-color:#c084fc"><div class="quad-h">シクリカルバリュー株の<b style="color:#c084fc">どん底</b><span class="quad-sub">低PBR/PER・低成長</span></div><div class="chips"><div class="chip">🔄<b>3880</b> DAIO PAPER</div><div class="chip">🔄<b>4005</b> SUMITOMO C<span class="chip-es">黒字転換✨</span></div><div class="chip">🔄<b>4208</b> UBE CORPOR</div><div class="chip"><b>1605</b> INPEX CORP</div><div class="chip"><b>3023</b> RASA CORPO</div><div class="chip"><b>3201</b> JAPAN WOOL</div><div class="chip"><b>3407</b> ASAHI KASE</div><div class="chip"><b>3863</b> NIPPON PAP</div><div class="chip"><b>4188</b> MITSUBISHI</div><div class="chip"><b>4204</b> SEKISUI CH</div><div class="chip"><b>4612</b> NIPPON PAI</div><div class="chip"><b>5019</b> IDEMITSU K</div><div class="chip"><b>5020</b> ENEOS HOLD</div><div class="chip"><b>5021</b> COSMO ENER</div><div class="chip"><b>5406</b> KOBE STEEL</div><div class="chip"><b>5410</b> GODO STEEL</div><div class="chip"><b>5411</b> JFE HOLDIN</div><div class="chip"><b>5440</b> KYOEI STEE</div><div class="chip"><b>5444</b> YAMATO KOG</div><div class="chip"><b>5714</b> DOWA HOLDI</div><div class="chip"><b>8016</b> ONWARD HOL</div><div class="chip"><b>9101</b> NIPPON YUS</div><div class="chip"><b>9104</b> MITSUI O.S</div><div class="chip"><b>9107</b> KAWASAKI K</div><div class="chip"><b>9110</b> NS UNITED </div><div class="chip"><b>9115</b> MEIJI SHIP</div></div></div>
+    <div class="quad" style="border-color:#c084fc"><div class="quad-h">シクリカルバリュー株の<b style="color:#c084fc">回復期</b><span class="quad-sub">低PBR/PER・高成長</span></div><div class="chips"><div class="chip"><b>2768</b> SOJITZ COR</div><div class="chip"><b>5713</b> SUMITOMO M</div><div class="chip"><b>5711</b> MITSUBISHI</div></div></div>
+    <div class="ax"></div>
+
+    <div class="ax"></div><div class="ax tag">◀ 収益バリュー株投資（中央）</div>
+    <div class="ax tag"></div><div class="ax"></div>
+  </div>
+  <div class="matrix-title">低PBR・低PER ↓</div>
+  <div class="meta">🔄💎🪙=たーちゃん本命候補（マークつき）／<span style="color:#34d399">黒字転換✨・2年連続赤字</span>は底値サイン。
+    循環は <b>どん底→回復期→天井→後退期</b> の順に回る。</div>
+
+  <h2>📋 戦略別の詳細</h2>
+  <h3>🔄 シクリカルV（本命） <span class="count">3件</span></h3><table><thead><tr><th>コード</th><th>銘柄</th><th>PER</th><th>PBR</th><th>営利率</th><th>ROA</th><th>自己資本</th><th>時価総額</th><th>業績</th></tr></thead><tbody><tr><td class="code">3880</td><td class="name">DAIO PAPER CORP</td><td>17.3</td><td>0.63</td><td>+3%</td><td>+2%</td><td>+27%</td><td>1,434億</td><td>今期赤字</td></tr><tr><td class="code">4005</td><td class="name">SUMITOMO CHEMICAL CO</td><td>14.6</td><td>0.89</td><td>-5%</td><td>+4%</td><td>+26%</td><td>8,964億</td><td>黒字転換✨</td></tr><tr><td class="code">4208</td><td class="name">UBE CORPORATION</td><td>13.0</td><td>0.71</td><td>+4%</td><td>+1%</td><td>+46%</td><td>3,114億</td><td>今期赤字</td></tr></tbody></table><h3>🚀 グロース（避ける） <span class="count">4件</span></h3><table><thead><tr><th>コード</th><th>銘柄</th><th>PER</th><th>PBR</th><th>営利率</th><th>ROA</th><th>自己資本</th><th>時価総額</th><th>業績</th></tr></thead><tbody><tr><td class="code">2768</td><td class="name">SOJITZ CORPORATION</td><td>10.7</td><td>1.01</td><td>+2%</td><td>+1%</td><td>+31%</td><td>11,021億</td><td>黒字</td></tr><tr><td class="code">5401</td><td class="name">NIPPON STEEL CORPORA</td><td>170.7</td><td>0.53</td><td>+4%</td><td>+2%</td><td>+49%</td><td>29,257億</td><td>黒字</td></tr><tr><td class="code">5713</td><td class="name">SUMITOMO METAL MININ</td><td>13.2</td><td>1.12</td><td>+13%</td><td>+3%</td><td>+60%</td><td>23,123億</td><td>黒字</td></tr><tr><td class="code">5803</td><td class="name">FUJIKURA</td><td>54.5</td><td>15.25</td><td>+14%</td><td>+13%</td><td>+49%</td><td>85,449億</td><td>黒字</td></tr></tbody></table><h3>・ 該当なし <span class="count">38件</span></h3><table><thead><tr><th>コード</th><th>銘柄</th><th>PER</th><th>PBR</th><th>営利率</th><th>ROA</th><th>自己資本</th><th>時価総額</th><th>業績</th></tr></thead><tbody><tr><td class="code">1605</td><td class="name">INPEX CORPORATION</td><td>10.6</td><td>0.83</td><td>+49%</td><td>+8%</td><td>+61%</td><td>40,677億</td><td>黒字</td></tr><tr><td class="code">3023</td><td class="name">RASA CORPORATION</td><td>8.1</td><td>0.82</td><td>+14%</td><td>+6%</td><td>+66%</td><td>191億</td><td>黒字</td></tr><tr><td class="code">3107</td><td class="name">DAIWABO HOLDINGS CO </td><td>9.2</td><td>1.71</td><td>+3%</td><td>+6%</td><td>+35%</td><td>2,889億</td><td>黒字</td></tr><tr><td class="code">3201</td><td class="name">JAPAN WOOL TEXTILE C</td><td>12.8</td><td>0.83</td><td>+8%</td><td>+4%</td><td>+69%</td><td>1,106億</td><td>黒字</td></tr><tr><td class="code">3407</td><td class="name">ASAHI KASEI CORP</td><td>15.3</td><td>1.16</td><td>+8%</td><td>+4%</td><td>+46%</td><td>24,233億</td><td>黒字</td></tr><tr><td class="code">3861</td><td class="name">OJI HOLDINGS CORP</td><td>23.3</td><td>0.64</td><td>+2%</td><td>+1%</td><td>+42%</td><td>6,834億</td><td>黒字</td></tr><tr><td class="code">3863</td><td class="name">NIPPON PAPER INDUSTR</td><td>11.8</td><td>0.27</td><td>+3%</td><td>+1%</td><td>+28%</td><td>1,381億</td><td>黒字</td></tr><tr><td class="code">4063</td><td class="name">SHIN-ETSU CHEMICAL C</td><td>28.9</td><td>3.04</td><td>+21%</td><td>+7%</td><td>+79%</td><td>135,933億</td><td>黒字</td></tr><tr><td class="code">4183</td><td class="name">MITSUI CHEMICALS INC</td><td>23.3</td><td>0.91</td><td>+4%</td><td>+2%</td><td>+39%</td><td>7,725億</td><td>黒字</td></tr><tr><td class="code">4188</td><td class="name">MITSUBISHI CHEMICAL </td><td>—</td><td>0.84</td><td>-8%</td><td>+0%</td><td>+30%</td><td>14,842億</td><td>黒字</td></tr><tr><td class="code">4204</td><td class="name">SEKISUI CHEMICAL CO</td><td>13.5</td><td>1.17</td><td>+10%</td><td>—</td><td>+60%</td><td>9,976億</td><td>黒字</td></tr><tr><td class="code">4612</td><td class="name">NIPPON PAINT HOLDING</td><td>20.0</td><td>1.30</td><td>+15%</td><td>+4%</td><td>+45%</td><td>24,818億</td><td>黒字</td></tr><tr><td class="code">5019</td><td class="name">IDEMITSU KOSAN CO.LT</td><td>9.0</td><td>0.80</td><td>+8%</td><td>—</td><td>+36%</td><td>15,154億</td><td>黒字</td></tr><tr><td class="code">5020</td><td class="name">ENEOS HOLDINGS INC</td><td>13.2</td><td>1.01</td><td>+5%</td><td>+3%</td><td>+35%</td><td>33,972億</td><td>黒字</td></tr><tr><td class="code">5021</td><td class="name">COSMO ENERGY HLDGS C</td><td>8.3</td><td>0.99</td><td>+9%</td><td>+4%</td><td>+27%</td><td>5,994億</td><td>黒字</td></tr><tr><td class="code">5406</td><td class="name">KOBE STEEL</td><td>8.3</td><td>0.62</td><td>+5%</td><td>+3%</td><td>+44%</td><td>7,775億</td><td>黒字</td></tr><tr><td class="code">5410</td><td class="name">GODO STEEL LTD</td><td>4.7</td><td>0.27</td><td>+4%</td><td>+2%</td><td>+53%</td><td>381億</td><td>黒字</td></tr><tr><td class="code">5411</td><td class="name">JFE HOLDINGS INC</td><td>15.3</td><td>0.39</td><td>+0%</td><td>+1%</td><td>+44%</td><td>10,267億</td><td>黒字</td></tr><tr><td class="code">5440</td><td class="name">KYOEI STEEL LTD</td><td>7.8</td><td>0.36</td><td>+4%</td><td>+3%</td><td>+58%</td><td>768億</td><td>黒字</td></tr><tr><td class="code">5444</td><td class="name">YAMATO KOGYO CO</td><td>12.1</td><td>1.37</td><td>+3%</td><td>+0%</td><td>+85%</td><td>7,394億</td><td>黒字</td></tr><tr><td class="code">5631</td><td class="name">JAPAN STEEL WORKS</td><td>30.3</td><td>2.74</td><td>+11%</td><td>+4%</td><td>+49%</td><td>5,817億</td><td>黒字</td></tr><tr><td class="code">5706</td><td class="name">MITSUI KINZOKU CO LT</td><td>30.6</td><td>6.78</td><td>+27%</td><td>+12%</td><td>+50%</td><td>27,931億</td><td>黒字</td></tr><tr><td class="code">5711</td><td class="name">MITSUBISHI MATERIALS</td><td>15.6</td><td>0.86</td><td>+5%</td><td>+1%</td><td>+29%</td><td>6,320億</td><td>黒字</td></tr><tr><td class="code">5714</td><td class="name">DOWA HOLDINGS</td><td>9.0</td><td>1.23</td><td>+9%</td><td>+3%</td><td>+59%</td><td>5,607億</td><td>黒字</td></tr><tr><td class="code">5801</td><td class="name">FURUKAWA ELECTRIC CO</td><td>51.9</td><td>9.00</td><td>+8%</td><td>+4%</td><td>+35%</td><td>37,539億</td><td>黒字</td></tr><tr><td class="code">5802</td><td class="name">SUMITOMO ELECTRIC IN</td><td>28.4</td><td>3.83</td><td>+10%</td><td>+6%</td><td>+52%</td><td>105,172億</td><td>黒字</td></tr><tr><td class="code">6013</td><td class="name">TAKUMA CO LTD</td><td>19.7</td><td>2.37</td><td>+11%</td><td>+5%</td><td>+59%</td><td>2,659億</td><td>黒字</td></tr><tr><td class="code">7003</td><td class="name">MITSUI E&amp;S CO LTD</td><td>11.4</td><td>1.92</td><td>+6%</td><td>+5%</td><td>+38%</td><td>4,398億</td><td>黒字</td></tr><tr><td class="code">7011</td><td class="name">MITSUBISHI HEAVY IND</td><td>37.4</td><td>4.26</td><td>+11%</td><td>+4%</td><td>+35%</td><td>131,619億</td><td>黒字</td></tr><tr><td class="code">7012</td><td class="name">KAWASAKI HEAVY INDUS</td><td>24.7</td><td>3.04</td><td>+7%</td><td>—</td><td>+26%</td><td>26,672億</td><td>黒字</td></tr><tr><td class="code">7014</td><td class="name">NAMURA SHIPBUILDING </td><td>12.4</td><td>1.95</td><td>+20%</td><td>+7%</td><td>+51%</td><td>2,667億</td><td>黒字</td></tr><tr><td class="code">8002</td><td class="name">MARUBENI CORP</td><td>14.8</td><td>1.84</td><td>+3%</td><td>+2%</td><td>+41%</td><td>80,033億</td><td>黒字</td></tr><tr><td class="code">8016</td><td class="name">ONWARD HOLDINGS CO L</td><td>9.8</td><td>1.06</td><td>+3%</td><td>+4%</td><td>+49%</td><td>989億</td><td>黒字</td></tr><tr><td class="code">9101</td><td class="name">NIPPON YUSEN KABUSHI</td><td>10.2</td><td>0.68</td><td>+6%</td><td>+2%</td><td>+59%</td><td>20,613億</td><td>黒字</td></tr><tr><td class="code">9104</td><td class="name">MITSUI O.S.K. LINES </td><td>8.5</td><td>0.63</td><td>+5%</td><td>+1%</td><td>+54%</td><td>18,080億</td><td>黒字</td></tr><tr><td class="code">9107</td><td class="name">KAWASAKI KISEN KAISH</td><td>11.8</td><td>0.87</td><td>+6%</td><td>+2%</td><td>+77%</td><td>15,654億</td><td>黒字</td></tr><tr><td class="code">9110</td><td class="name">NS UNITED KAIUN KA</td><td>6.7</td><td>0.86</td><td>+9%</td><td>+4%</td><td>+57%</td><td>1,619億</td><td>黒字</td></tr><tr><td class="code">9115</td><td class="name">MEIJI SHIPPING GROUP</td><td>6.1</td><td>0.49</td><td>-5%</td><td>+1%</td><td>+16%</td><td>262億</td><td>黒字</td></tr></tbody></table>
+
+  <div class="note">
+    <b>利益配分</b> = 資産バリュー1 : 収益バリュー1 : <b>シクリカルバリュー8（本命）</b>。
+    景気循環業種で<b>2年連続赤字→黒字転換</b>を底値で仕込み、回復で大きく取る逆張り。
+    <h3 style="margin-top:10px;">🔔 売り時の3ルール</h3>
+    <ul><li>① シナリオが崩れたとき（業績が想定より悪化／経営方針の変更）</li><li>② もっと良い銘柄を見つけたとき（※主観のため自動判定なし）</li><li>③ 短期間で急騰したとき（利益が一気に乗ったら利確を検討）</li></ul>
+  </div>
+</body>
+</html>

@@ -31,8 +31,26 @@ def _num(v, pct=False, nd=2):
     return f"{v*100:+.0f}%" if pct else f"{v:.{nd}f}"
 
 
+def _yen(v, nd=0):
+    return "—" if v is None else f"¥{v:,.{nd}f}"
+
+
 def _yen_oku(v):
     return "—" if v is None else f"{v/1e8:,.0f}億"
+
+
+def _yield(v):
+    """Dividend yield (v is a fraction like 0.042)."""
+    return "—" if v is None else f"{v*100:.1f}%"
+
+
+def _pos52(v):
+    """52-week range position with a 底値圏/高値圏 hint."""
+    if v is None:
+        return "—"
+    tag = "底値圏" if v <= 25 else ("高値圏" if v >= 75 else "")
+    cls = "low" if v <= 25 else ("high" if v >= 75 else "mid")
+    return f'<span class="pos {cls}">{v:.0f}%{(" " + tag) if tag else ""}</span>'
 
 
 def _chip(m: dict) -> str:
@@ -43,9 +61,11 @@ def _chip(m: dict) -> str:
     extra = ""
     if es in ("黒字転換✨", "2年連続赤字"):
         extra = f'<span class="chip-es">{escape(es)}</span>'
+    price = m.get("price")
+    px = f'<span class="chip-px">¥{price:,.0f}</span>' if price is not None else ""
     return (
         f'<div class="chip">{badge}<b>{escape(m["code"])}</b> '
-        f'{escape(str(m["name"])[:10])}{extra}</div>'
+        f'{escape(str(m["name"])[:9])}{px}{extra}</div>'
     )
 
 
@@ -81,7 +101,11 @@ def render(rows: list[dict], title: str = "たーちゃん流 バリュー・ス
         trows = "".join(
             "<tr>"
             f'<td class="code">{escape(m["code"])}</td>'
-            f'<td class="name">{escape(str(m["name"])[:20])}</td>'
+            f'<td class="name">{escape(str(m["name"])[:18])}</td>'
+            f'<td class="hl">{_yen(m.get("price"))}</td>'
+            f'<td>{_yield(m.get("div_yield"))}</td>'
+            f'<td>{_yen(m.get("eps"), nd=0)}</td>'
+            f'<td>{_pos52(m.get("pos52"))}</td>'
             f'<td>{_num(m.get("per"), nd=1)}</td>'
             f'<td>{_num(m.get("pbr"))}</td>'
             f'<td>{_num(m.get("op_margin"), pct=True)}</td>'
@@ -94,7 +118,8 @@ def render(rows: list[dict], title: str = "たーちゃん流 バリュー・ス
         )
         sections.append(
             f'<h3>{emoji} {escape(label)} <span class="count">{len(items)}件</span></h3>'
-            '<table><thead><tr><th>コード</th><th>銘柄</th><th>PER</th><th>PBR</th>'
+            '<table><thead><tr><th>コード</th><th>銘柄</th><th>株価</th><th>配当利回</th>'
+            '<th>EPS</th><th>52週位置</th><th>PER</th><th>PBR</th>'
             '<th>営利率</th><th>ROA</th><th>自己資本</th><th>時価総額</th><th>業績</th>'
             f'</tr></thead><tbody>{trows}</tbody></table>'
         )
@@ -132,8 +157,13 @@ def render(rows: list[dict], title: str = "たーちゃん流 バリュー・ス
   .chip {{ background:#0f1115; border:1px solid #3a3550; border-radius:7px;
            padding:2px 7px; font-size:12px; }}
   .chip b {{ color:#d8b4fe; }}
+  .chip-px {{ color:#e6e6e6; margin-left:5px; }}
   .chip-es {{ color:#34d399; font-size:10px; margin-left:4px; }}
   .chip.empty {{ color:#555; border-style:dashed; }}
+  td.hl {{ font-weight:700; }}
+  .pos.low  {{ color:#34d399; font-weight:700; }}
+  .pos.high {{ color:#f87171; font-weight:700; }}
+  .pos.mid  {{ color:#b8c0cc; }}
   .corner {{ font-size:10px; color:#8a93a2; }}
 
   table {{ border-collapse:collapse; width:100%; font-size:13px; margin-bottom:4px; }}

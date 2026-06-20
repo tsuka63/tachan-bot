@@ -85,10 +85,30 @@ def fetch(code: str) -> dict:
     except Exception:
         pass
 
+    price   = _f(info.get("currentPrice"))
+    div     = _f(info.get("dividendRate"))
+    hi52    = _f(info.get("fiftyTwoWeekHigh"))
+    lo52    = _f(info.get("fiftyTwoWeekLow"))
+
+    # 配当利回り = 配当 / 株価（曖昧さを避けて自前計算）
+    div_yield = (div / price) if (div is not None and price) else _f(info.get("dividendYield"))
+    # 52週レンジ内の位置（0%=安値圏／100%=高値圏）
+    pos52 = None
+    if price is not None and hi52 is not None and lo52 is not None and hi52 > lo52:
+        pos52 = (price - lo52) / (hi52 - lo52) * 100
+
     return {
         "code":         str(code),
         "name":         info.get("shortName") or info.get("longName") or str(code),
-        "price":        _f(info.get("currentPrice")),
+        "price":        price,
+        "eps":          _f(info.get("trailingEps")),
+        "bps":          _f(info.get("bookValue")),
+        "dividend":     div,
+        "div_yield":    div_yield,
+        "week52_high":  hi52,
+        "week52_low":   lo52,
+        "pos52":        pos52,
+        "roe":          _f(info.get("returnOnEquity")),
         "per":          _f(info.get("trailingPE")),
         "pbr":          _f(info.get("priceToBook")),
         "op_margin":    _f(info.get("operatingMargins")),

@@ -29,9 +29,18 @@ def main() -> int:
     codes = UNIVERSES["all"]
     print(f"[{TODAY}] Screening {len(codes)} stocks (たーちゃん流) …")
     rows = screen(fetch_many(codes))
+
+    # Health check: if most stocks have no price, yfinance likely broke.
+    # Fail (GitHub alerts) and keep the last good page.
+    priced = sum(1 for m in rows if m.get("price") is not None)
+    if priced < len(codes) * 0.5:
+        print(f"  [ERROR] only {priced}/{len(codes)} priced — data source degraded. "
+              "Keeping last good page.")
+        return 1
+
     save(rows, OUT, title="たーちゃん流 バリュー・スクリーナー")
     n_cyc = sum(1 for m in rows if m.get("strategy") == "cyclical")
-    print(f"  Report → {OUT}  (シクリカル本命 {n_cyc}件)")
+    print(f"  Report → {OUT}  (シクリカル本命 {n_cyc}件 ／ {priced}/{len(codes)}銘柄に価格)")
     return 0
 
 
